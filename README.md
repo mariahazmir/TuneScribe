@@ -1,4 +1,6 @@
-# TuneScribe by @mariahazmir
+# TuneScribe
+
+by @mariahazmir ✨
 
 ## 🎶 Project Overview
 
