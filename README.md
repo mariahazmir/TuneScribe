@@ -1,5 +1,4 @@
 # TuneScribe
-#### Video Demo:    https://youtu.be/6vibPsBRY4Q
 
 ## Project Overview
 
