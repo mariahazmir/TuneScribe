@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TuneScribe</title>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+    <body>
+        <div class="loading-screen" id="loadingScreen">
+            <h2>Grooving...</h2>
+            <p>Hang tight! We're cooking up your playlist!</p>
+        </div>
+        <div class="container">
+            <h1>TuneScribe</h1>
+            <h2>Create Your Spotify Playlist!</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            {% if session.access_token %}
+                <form id="playlistForm" action="{{ url_for('generate_playlist') }}" method="post">
+                    <textarea name="sentence" placeholder="Type a sentence to get started..."></textarea>
+                    <button type="submit">Let's Jam!</button>
+                </form>
+            {% else %}
+                <a href="{{ url_for('login') }}"><button>Login to Spotify and Start the Fun!</button></a>
+            {% endif %}
+            {% if embed_url %}
+                <div id="playlistEmbed">
+                    <iframe src="{{ embed_url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            {% endif %}
+        </div>
+        <script>
+            document.getElementById('playlistForm').addEventListener('submit', function() {
+                document.getElementById('loadingScreen').style.display = 'block';
+            });
+        </script>
+    </body>
+
+</html>
