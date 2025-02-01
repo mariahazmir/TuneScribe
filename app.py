@@ -163,7 +163,7 @@ def callback():
         'client_secret': client_secret
     })
 
-    # Ensure we get a valid response
+    # Ensure valid response
     if auth_response.status_code != 200:
         flash("Authorization failed. Please try again.")
         return redirect(url_for('index'))
