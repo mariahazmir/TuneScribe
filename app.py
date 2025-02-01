@@ -154,6 +154,7 @@ def login():
 def callback():
     code = request.args.get('code')
     auth_token_url = 'https://accounts.spotify.com/api/token'
+    
     auth_response = requests.post(auth_token_url, data={
         'grant_type': 'authorization_code',
         'code': code,
@@ -161,9 +162,23 @@ def callback():
         'client_id': client_id,
         'client_secret': client_secret
     })
+
+    # Ensure we get a valid response
+    if auth_response.status_code != 200:
+        flash("Authorization failed. Please try again.")
+        return redirect(url_for('index'))
+
     auth_response_data = auth_response.json()
-    session['access_token'] = auth_response_data.get('access_token')
+
+    # Check if access token is present in response
+    access_token = auth_response_data.get('access_token')
+    if not access_token:
+        flash("Failed to retrieve access token. Please try again.")
+        return redirect(url_for('index'))
+
+    session['access_token'] = access_token
     return redirect(url_for('index'))
+
 
 # Route to handle playlist generation requests
 @app.route('/generate_playlist', methods=['POST'])
