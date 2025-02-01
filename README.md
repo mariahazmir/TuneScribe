@@ -4,7 +4,7 @@ by @mariahazmir ✨
 
 ## 🎶 Project Overview
 
-Welcome to **TuneScribe** – the magical app that turns your words into a personalized Spotify playlist! The songs are arranged in the exact order of the words in your sentence, creating a playlist that is a direct, musical replica of your input. Each word in your sentence corresponds to a song, making the playlist a true reflection of your original phrase. Imagine typing in a sentence, phrase, or even your favorite quote, and having it transformed into a unique playlist that reflects the essence of your input.
+Welcome to **TuneScribe** – the magical app that turns your words into a personalized Spotify playlist! The songs are arranged in the exact order of the words in your sentence, creating a playlist that is a direct, musical replica of your input. Each word in your sentence corresponds to a song, making the playlist a true reflection of your original phrase.
 
 This web app is built with a blend of Flask wizardry, Spotify API smarts, and a sprinkle of OAuth magic, all designed to make your music experience seamless and fun. Ready to turn your thoughts into tunes? Let's dive in!
 
@@ -25,10 +25,6 @@ This is the brain of TuneScribe – the file where all the magic happens:
 - **Spotify Authentication**: Handles the sign-in process with Spotify, so you can create playlists directly in your account.
 - **Playlist Wizardry**: Transforms your sentence into a playlist by standardizing input, searching for songs, and compiling them.
 - **Session Management**: Keeps you logged in and happy across the site.
-
-### `credentials.py`
-The vault for TuneScribe’s Spotify secrets:
-- **Spotify API Credentials**: Your ticket to accessing the Spotify universe – includes Client ID, Secret, and Redirect URI.
 
 ### `contractions.py`
 No more "cant" or "wont" – this file expands contractions to make sure your playlists hit the right notes:
@@ -68,12 +64,6 @@ TuneScribe is quick on its feet, using caching to speed up song searches. Effici
 
 ### Smooth Error Handling
 If we can’t find enough songs, no worries! We’ll let you know with a friendly message and some suggestions.
-
-### Fun UI Design
-The whole app is designed to keep things light and engaging:
-- **Dark Theme**: Inspired by Spotify’s own look, with our twist.
-- **Loading Screen**: Keeps you in the loop while your playlist is in the oven.
-- **Playful Language**: We’re all about having fun here, from titles to buttons.
 
 ## 🎧 Conclusion
 
